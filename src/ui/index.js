@@ -1,3 +1,3 @@
-import DipraPdf from "./PDFDownload";
+import Alert from "./AlertBar/AlertBar";
 
-export const PdfDownload = DipraPdf;
+export const AlertBar = Alert;

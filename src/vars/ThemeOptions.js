@@ -1,7 +1,3 @@
-export const baseUrl = `https://wmkagency.com`;
-export const twitter = `@WatermarkAgency`;
-export const siteTitle = `Watermark Agency`;
-
 // Set up a standardized nomenclature for padding,
 // with control over base size and units
 const getThemePadding = (base = 1, units = "rem") => {
@@ -42,7 +38,6 @@ class ThemeOptions {
     this.padding = settings.padding ? settings.padding : getThemePadding();
     this.baseUnit = settings.baseUnit ? settings.baseUnit : "rem";
     this.break = settings.break ? settings.break : {};
-    this.gradient = settings.gradient ? settings.gradient : {};
   }
   pad(size, string = true) {
     return string
@@ -126,147 +121,66 @@ class ThemeOptions {
 
 // SET INITIAL THEME OPTIONS HERE
 
-const Theme = new ThemeOptions({
-  color: {
-    // colors must be hexadecimal thus far
-    primary: {
-      hex: "#048CB9",
-    },
-    secondary: {
-      hex: "#ebe72a",
-    },
-    accent: {
-      hex: "#B9D800",
-    },
-    reverse: {
-      hex: "#fefefe",
-    },
-    tang: {
-      hex: "#E48C2B",
-    },
-    body: {
-      hex: "#696969",
-    },
-    fire: {
-      hex: "#F15A24",
-    },
-    light_gray: {
-      hex: "#cccccc",
-    },
-    black: {
-      hex: "#000000",
-    },
-    white: {
-      hex: "#ffffff",
-    },
-    gold: {
-      hex: "#ffd500",
-    },
-    slate: {
-      hex: "#464646",
-    },
-    rust: {
-      hex: "#B91810",
-    },
+const colorsNTMWD = {
+  // colors must be hexadecimal thus far
+  white: {
+    hex: "#fefefe",
   },
+  text: {
+    hex: "#575757"
+  },
+  blue: {
+    hex: "#055DB8"
+  },
+  cobalt: {
+    hex: "#1374b4"
+  },
+  orange: {
+    hex: "#D04A01"
+  },
+  cyan: {
+    hex: "#1F99E8"
+  },
+  teal: {
+    hex: "#2F8379"
+  },
+  darkgray: {
+    hex: "#999999"
+  },
+  gray: {
+    hex: "#D2D2D2"
+  },
+  lightgray: {
+    hex: "#F1F1F1"
+  },
+  platinum: {
+    hex: "#F8F8F8"
+  },
+  black: {
+    hex: "#0a0a0a"
+  },
+  green: {
+    hex: "#79bd69"
+  }
+};
+
+const Theme = new ThemeOptions({
+  color: colorsNTMWD,
   paths: {
     blog: `/blog/`,
     home: `/home/`,
     tags: `/blog/tag/`,
-    baseURL: "watermarkadvertising.net",
-    baseUrl: "https://wmkagency.com",
+    baseUrl: "https://www.ntmwd.com",
     protocol: "https",
     contact: "/contact/",
-    team: `/team/`,
-    about: `/about/`,
-    work: `/work/`,
-    services: `/services/`,
-    db: `https://watermarkadvertising.net`,
-    prod: `https://wmkagency.com`,
-    dev: `localhost:8000`,
-    pages: `/`,
+    faq: "/faq/",
   },
   break: {
-    xs: "576px",
-    sm: "768px",
-    md: "992px",
-    lg: "1200px",
-  },
-  font: {
-    body: `'Nunito Sans', sans-serif`,
-    head: `Rajdhani, sans-serif`,
-  },
-  gradient: {
-    wmk: `background-color: #e48c2b;
-          background-image: linear-gradient(to right, #F15A24, #E48C2B);
-          `,
-    twitter: `background-color: #4db5f5;
-              background-image: linear-gradient(to right, #1da1f2, #4db5f5);`,
-    facebook: `background-color: #6d84b4;
-               background-image: linear-gradient(to right, #3b5998, #6d84b4);`,
-    rust: `background: rgb(175,16,8);
-               background: linear-gradient(90deg, rgba(175,16,8,1) 0%, rgba(210,79,16,1) 100%);`,
-    black: `background: rgb(0,0,0);
-               background: linear-gradient(0deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 100%);`,
-    fire: `background: rgb(241,90,36);
-            background: linear-gradient(0deg, rgba(241,90,36,.65) 0%, rgba(241,90,36,0) 100%);`,
+    xs: 576,
+    sm: 768,
+    md: 992,
+    lg: 1200,
   },
 });
-
-// any global CSS variable will go here
-// const theme = {
-//     colors: {
-//       primary: '#048CB9',
-//       primary_darker: '#0471b9',
-//       primary_lighter: '#18bef5',
-//       secondary: '#ebe72a',
-//       accent: '#B9D800',
-//       reverse: 'white',
-//       gray: '#707070',
-//       light_gray: '#b7b4b2',
-//       background: '#37312C',
-//       background_alpha: 'rgba(22,19,17,.8)',
-//       white_alpha: 'rgba(255,255,255,.7)',
-//       gray_dark: '#555451',
-//       accent_alpha: 'rgba(185,216,0,.8)'
-//     },
-//     padding: themePad,
-//     transform: {
-//       transition: 'all .3s ease',
-//       skew: 'skew(-.512rad)',
-//     },
-//     font: {
-//       body: {
-//         family: `${themeFontName}, sans-serif`,
-//         weight: 400,
-//         size: themePad.single
-//       },
-//       heading: {
-//         family: `${themeFontName}, sans-serif`,
-//         weight: 300,
-//         size: themePad.double
-//       },
-//       button: {
-//         family: `${themeFontName}, sans-serif`,
-//         weight: 400,
-//         size: '.9rem'
-//       }
-//     },
-// paths: {
-//   solutions: `/product/`,
-//   solutionsType: `/lighting-solutions/`,
-//   ourApproach: `/our-approach/`,
-//   inspiration: `/inspiration/`,
-//   application: `/inspiration/application`,
-//   blog: `/blog/`,
-//   resources: `/resources/`,
-//   home: `/home/`,
-//   tags: `/blog/tag/`,
-//   baseURL: 'evo-lite.com',
-//   protocol: 'https://',
-//   contact: '/contact/',
-//   faq: '/faq/'
-// }
-//   }
 
 export default Theme;
