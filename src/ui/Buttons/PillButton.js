@@ -23,11 +23,11 @@ const Btn = styled(WMKLink)`
 `;
 
 const PillButton = ({ to, target, children, tracking }) => {
-  const [data, setData] = useState();
+  const [dataLayer, setDataLayer] = useState();
   useEffect(() => {
     const dL = (window && window.dataLayer) || [];
-    if (tracking && window && window.dataLayer) {
-      setData(dL);
+    if (tracking && dL) {
+      setDataLayer(dL);
     }
   }, [tracking]);
   return (
@@ -36,7 +36,7 @@ const PillButton = ({ to, target, children, tracking }) => {
       target={target}
       onClick={() => {
         const { event, params } = tracking;
-        return tracking && data ? data.push({ event, ...params }) : undefined;
+        return tracking && dataLayer ? dataLayer.push({ event, ...params }) : undefined;
       }}
     >
       {children}
