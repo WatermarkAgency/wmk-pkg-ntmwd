@@ -22,7 +22,7 @@ const Btn = styled(WMKLink)`
   }
 `;
 
-export const PillButton = ({ to, target, children, tracking }) => {
+const PillButton = ({ to, target, children, tracking }) => {
   const [data, setData] = useState();
   useEffect(() => {
     const dL = (window && window.dataLayer) || [];
@@ -44,3 +44,5 @@ export const PillButton = ({ to, target, children, tracking }) => {
     </Btn>
   );
 };
+
+export default PillButton;

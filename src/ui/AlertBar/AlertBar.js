@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AlertTriangle from "./AlertTriangle";
 import styled from "styled-components";
-import { PillButton } from "../Buttons/PillButton";
+import PillButton from "../Buttons/PillButton";
 import { colors } from "../../vars/palette";
 
 export const ALERT_BAR_BREAK = 992;
