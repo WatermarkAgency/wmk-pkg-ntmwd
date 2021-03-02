@@ -34,8 +34,7 @@ const PillButton = ({ to, target, children, tracking }) => {
     <Btn
       to={to}
       target={target}
-      onClick={(e) => {
-        e.preventDefault();
+      onClick={() => {
         const { event, params } = tracking;
         return tracking && data ? data.push({ event, ...params }) : undefined;
       }}
