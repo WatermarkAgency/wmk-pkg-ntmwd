@@ -1,6 +1,6 @@
 import React from "react";
 
-export const NTMWDLogo = React.forwardRef((props, ref) => {
+const NTMWDLogo = React.forwardRef((props, ref) => {
   return (
     <svg
       viewBox="2854 77 126.891 93.917"
@@ -237,3 +237,5 @@ export const NTMWDLogo = React.forwardRef((props, ref) => {
     </svg>
   );
 });
+
+export default NTMWDLogo;
