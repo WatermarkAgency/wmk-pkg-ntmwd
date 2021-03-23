@@ -1,24 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AlertTriangle from "./AlertTriangle";
-import styled from "styled-components";
 import PillButton from "../Buttons/PillButton";
 import { colors } from "../../vars/palette";
 
 export const ALERT_BAR_BREAK = 992;
-
-const Styled = {};
-Styled.Alert = styled(Container)`
-  background: ${colors.hex("milanoRed")};
-  color: ${colors.hex("white")};
-`;
-
-Styled.AlertRow = styled(Row)`
-  & > .col,
-  & > .col-auto {
-    padding: 0.25rem;
-  }
-`;
 
 const AlertBar = ({ cta, children }) => {
   const [viewWidth, setViewWidth] = useState(0);
@@ -33,16 +19,23 @@ const AlertBar = ({ cta, children }) => {
     return () => window.removeEventListener("resize", resize);
   });
   return (
-    <Styled.Alert fluid>
+    <Container
+      fluid
+      style={{
+        background: colors.hex("milanoRed"),
+        color: colors.hex("white"),
+      }}
+    >
       <Container>
         <Row>
           <Col xs={2} md={3}>
-            <Styled.AlertRow>
+            <Row>
               <Col
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "flex-end",
+                  padding: "0.25rem",
                 }}
               >
                 <AlertTriangle
@@ -60,6 +53,7 @@ const AlertBar = ({ cta, children }) => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "flex-start",
+                  padding: "0.25rem",
                 }}
               >
                 {isMobile ? null : (
@@ -73,7 +67,7 @@ const AlertBar = ({ cta, children }) => {
                   </span>
                 )}
               </Col>
-            </Styled.AlertRow>
+            </Row>
           </Col>
           <Col
             xs={8}
@@ -104,7 +98,7 @@ const AlertBar = ({ cta, children }) => {
           </Col>
         </Row>
       </Container>
-    </Styled.Alert>
+    </Container>
   );
 };
 

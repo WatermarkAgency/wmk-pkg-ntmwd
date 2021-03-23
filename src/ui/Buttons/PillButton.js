@@ -1,26 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { WMKLink } from "wmk-lib";
-import styled from "styled-components";
-import { colors } from "../../vars/palette";
-
-const Btn = styled(WMKLink)`
-  color: ${colors.hex("white")};
-  padding: 0.25rem 0.35rem;
-  border: 1px solid ${colors.hex("white")};
-  border-radius: 5px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  //font-weight: bold;
-  font-size: 14px;
-  line-height: 1.2;
-  :hover {
-    text-decoration: none;
-    color: ${colors.hex("primary")};
-    background: ${colors.rgba("white", 0.9)};
-    transition: all 0.3s ease;
-    box-shadow: 0px 3px 5px ${colors.rgba("black", 0.25)};
-  }
-`;
+import styles from "./PillButton.module.css";
 
 const PillButton = ({ to, target, children, tracking }) => {
   const [dataLayer, setDataLayer] = useState();
@@ -31,16 +11,19 @@ const PillButton = ({ to, target, children, tracking }) => {
     }
   }, [tracking]);
   return (
-    <Btn
+    <WMKLink
       to={to}
       target={target}
       onClick={() => {
         const { event, params } = tracking;
-        return tracking && dataLayer ? dataLayer.push({ event, ...params }) : undefined;
+        return tracking && dataLayer
+          ? dataLayer.push({ event, ...params })
+          : undefined;
       }}
+      styles={styles.pill}
     >
       {children}
-    </Btn>
+    </WMKLink>
   );
 };
 
